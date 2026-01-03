@@ -4,6 +4,9 @@
   hosts: "{{ lookup('ansible.builtin.env', 'DO_DROPLET_NAME') }}"
   gather_facts: false
   tasks:
+    - name: Wait for automatic updates to finish
+      ansible.builtin.shell: while fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do sleep 5; done;
+
     - name: Wait for connection to cookbook-lab-droplet
       ansible.builtin.wait_for_connection:
         timeout: 60

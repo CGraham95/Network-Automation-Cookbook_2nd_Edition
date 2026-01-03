@@ -14,12 +14,12 @@
     - name: "droplet_size"
       prompt: "Enter the droplet size"
       private: false
-      default: "s-4vcpu-16gb-amd"
+      default: "s-4vcpu-8gb"
 
     - name: "droplet_region"
       prompt: "Enter the droplet region"
       private: false
-      default: "fra1"
+      default: "sfo"
 
   tasks:
     - name: Create DigitalOcean Droplets
